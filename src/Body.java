@@ -5,7 +5,7 @@ public class Body {
 	private double myYVel;
 	private double myMass;
 	private String myFileName;
-	final double G = 6.67*1e-11;
+	private final double G = 6.67*1e-11;
 	
 	//constructor in which values for each instance variable is given as a parameter
 	public Body (double xPos, double yPos, double xVel, double yVel, double mass, String name) {
