@@ -1,3 +1,12 @@
+/**
+ * @AnitaLi (al367)
+ * 
+ * CS 201 Fall 2018
+ * P1: NBody 
+ * 
+ * Due: Sept. 17
+ */
+
 public class Body {
 	private double myXPos;
 	private double myYPos;
@@ -8,6 +17,9 @@ public class Body {
 	private final double G = 6.67*1e-11;
 	
 	//constructor in which values for each instance variable is given as a parameter
+	/**
+	 * constructor in which values for each instance variable is given as a parameter
+	 */
 	public Body (double xPos, double yPos, double xVel, double yVel, double mass, String name) {
 		myXPos = xPos;
 		myYPos = yPos;
@@ -18,6 +30,9 @@ public class Body {
 	}
 	
 	//constructor that creates a Body by copying another
+	/**
+	 * constructor that creates a Body by copying another
+	 */
 	public Body (Body copy) {
 		myXPos = copy.getX();
 		myYPos = copy.getY();
@@ -27,31 +42,58 @@ public class Body {
 		myFileName = copy.getName();
 	}
 	
+	//returns x position of body
+	/**
+	 * returns x position of body (a double)
+	 */
 	public double getX() {
 		return myXPos;
 	}
 	
+	//returns y position of body
+	/**
+	 * returns y position of body (a double)
+	 */
 	public double getY() {
 		return myYPos;
 	}
 	
+	//returns x velocity of body
+	/**
+	 * returns x velocity of body (a double)
+	 */
 	public double getXVel() {
 		return myXVel;
 	}
 	
+	//returns y velocity of body
+	/**
+	 * returns y velocity of body (a double)
+	 */
 	public double getYVel() {
 		return myYVel;
 	}
 
+	//returns mass of body
+	/**
+	 * returns mass of body (a double)
+	 */
 	public double getMass() {
 		return myMass;
 	}
 	
+	//returns file name of body
+	/**
+	 * returns name of body (a String)
+	 */
 	public String getName() {
 		return myFileName;
 	}
 	
 	//returns the distance between two Body objects using the standard distance formula
+	/**
+	 * returns the distance between two Body objects using the standard distance formula
+	 */
 	public double calcDistance(Body b) {
 		double changeX = myXPos - b.getX();
 		double changeY = myYPos - b.getY();
@@ -63,12 +105,21 @@ public class Body {
 	//       m1m2
 	// F = G------
 	//       r^2
+	/**
+	 * //calculates and returns the force exerted on this body by the body given in parameter
+	 *       m1m2
+	 * F = G------
+	 *       r^2
+	 */
 	public double calcForceExertedBy(Body p) {
 		double force = G * ((myMass * p.getMass()) / (Math.pow(this.calcDistance(p), 2)));
 		return force;
 	}
 	
 	//calculate and return the force exerted in the X direction 
+	/**
+	 * calculate and return the force exerted in the X direction 
+	 */
 	public double calcForceExertedByX(Body p) {
 		double overallForce = this.calcForceExertedBy(p);
 		double changeX = p.getX() - myXPos;
@@ -78,6 +129,9 @@ public class Body {
 	}
 	
 	//calculate and return the force exerted in the Y direction 
+	/**
+	 * calculate and return the force exerted in the Y direction 
+	 */
 	public double calcForceExertedByY(Body p) {
 		double overallForce = this.calcForceExertedBy(p);
 		double changeY = p.getY() - myYPos;
@@ -87,6 +141,9 @@ public class Body {
 	}
 	
 	//returns the total/net force exerted on this body (in X) by all the bodies in the array parameter
+	/**
+	 * returns the total/net force exerted on this body (in X direction) by all the bodies in the array parameter
+	 */
 	public double calcNetForceExertedByX(Body[] bodies) {
 		double netForceX = 0.0;
 		for (Body b : bodies) {
@@ -98,6 +155,9 @@ public class Body {
 	}
 	
 	//returns the total/net force exerted on this body (in Y) by all the bodies in the array parameter
+	/**
+	 * returns the total/net force exerted on this body (in X direction) by all the bodies in the array parameter
+	 */
 	public double calcNetForceExertedByY(Body[] bodies) {
 		double netForceY = 0.0;
 		for (Body b : bodies) {
@@ -109,6 +169,9 @@ public class Body {
 	}
 	
 	//this mutator updates the instance variables of Body with the parameters 
+	/**
+	 * updates the instance variables of Body with the parameters (updates the position and velocities based on interval/dT and the x and y forces)
+	 */
 	public void update(double deltaT, double xForce, double yForce) {
 		double accelX = xForce / myMass;
 		double accelY = yForce / myMass;
@@ -124,6 +187,9 @@ public class Body {
 	}
 	
 	//drawing the body
+	/**
+	 * draws the body to be viewed
+	 */
 	public void draw() {
 		StdDraw.picture(myXPos, myYPos, "images/"+ myFileName);
 	}

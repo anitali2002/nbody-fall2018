@@ -1,7 +1,6 @@
-	
-
 /**
  * @author YOUR NAME THE STUDENT IN 201
+
  * @AnitaLi (al367)
  * 
  * Simulation program for the NBody assignment
