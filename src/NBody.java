@@ -1,6 +1,6 @@
 /**
  * @author YOUR NAME THE STUDENT IN 201
-
+ * 
  * @AnitaLi (al367)
  * 
  * Simulation program for the NBody assignment
@@ -56,6 +56,8 @@ public class NBody {
 	public static void main(String[] args) throws FileNotFoundException{
 		double totalTime = 157788000.0;
 		double dt = 25000.0;
+//		double totalTime = 2000000.0;
+//		double dt = 25000.0;
 		
 		String fname= "./data/planets.txt";
 		if (args.length > 2) {
